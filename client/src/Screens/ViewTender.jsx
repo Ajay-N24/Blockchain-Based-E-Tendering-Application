@@ -74,6 +74,7 @@ const ViewTender = () => {
         const decimalValue = parseInt(datetime.hex.substring(2), 16);
         return new Date(decimalValue).toLocaleString();
     };
+    let [count, setCount] = useState(0);
     return (
         <div className='flex bg-gradient-to-r from-slate-300 to-slate-500'>
             <div className='bg-black'>
@@ -94,8 +95,8 @@ const ViewTender = () => {
                     <tbody>
                         {
                             tenderArray && tenderArray.map((item, index) => (
-                                <tr key={index}>
-                                    <td className='text-center px-3'>1</td>
+                                <tr key={index} >
+                                    <td className='text-center px-3' >{count}</td>
                                     <td className='text-center px-3'>{item[0]}</td>
                                     <td className='text-center px-3'>{item[1]}</td>
                                     {/* <td className='text-center px-3' onLoad={displayDate}>{item[5] && item[5].type === 'BigNumber' ? new BigNumber(item[5].hex).toString() : ''}</td> */}
@@ -105,7 +106,7 @@ const ViewTender = () => {
                                         <div className='text-center'>
                                             <button type="submit" className='px-5 py-1.5 rounded-xl w-full bg-amber-400 text-base'>View</button>
                                         </div>
-                                        <div className='text-center'>
+                                        <div className='text-center' onLoad={() => { setCount(count + 1) }}>
                                             <button type="submit" className='px-5 py-1.5 rounded-xl w-full bg-green-300 text-base'>Apply</button>
                                         </div>
                                     </td>

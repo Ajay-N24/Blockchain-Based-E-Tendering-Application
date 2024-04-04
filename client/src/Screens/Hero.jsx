@@ -7,10 +7,10 @@ const Hero = () => {
             <div className='relative flex flex-col space-y-7 justify-center items-start w-full'>
                 <h1 className='text-4xl font-bold'>Tendering Application</h1>
                 <p className='pr-20'>
-                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    Empowering Your Procurement Journey: Streamline Bidding, Enhance Collaboration, and Simplify Tender Management with Our Comprehensive Solution
                 </p>
                 <div className=''>
-                    <button className='bg-orange-400 px-4 py-2 rounded-xl'>Get Started</button>
+                    <button className='bg-orange-400 px-4 py-2 rounded-xl text-white hover:bg-orange-500'>Get Started</button>
                 </div>
             </div>
             <div className='relative flex flex-col justify-center items-start w-full'>

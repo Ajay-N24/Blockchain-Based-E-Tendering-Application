@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { set } from '../Store/RoleSlice';
 import Sidebar from '../Components/Sidebar'
@@ -6,6 +6,33 @@ import Sidebar from '../Components/Sidebar'
 const CATenders = () => {
     const roleu = useSelector((state) => state.Role.value)
     const dispatch = useDispatch()
+    useEffect(() => {
+        const isAdmin = async () => {
+            const response = await fetch("http://localhost:5000/api/isIssuer", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ emaile: localStorage.getItem("userEmail") })
+            });
+            const json = await response.json();
+            try {
+                if (json.success === false) {
+                    dispatch(set(json.success))
+                    // setIssuer(json.success);
+                }
+                else if (json.success === true) {
+                    dispatch(set(json.success))
+                    // setIssuer(json.success);
+                }
+                console.log(json.success);
+            }
+            catch (e) {
+                console.log(e);
+            }
+        }
+        isAdmin();
+    }, [dispatch]);
     return (
         <div className='flex'>
             <div>

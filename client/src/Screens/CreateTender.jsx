@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { ethers } from 'ethers'
 import { set } from '../Store/RoleSlice';
@@ -56,7 +56,7 @@ const CreateTender = () => {
                 const signer = provider.getSigner();
                 const address = await signer.getAddress();
                 console.log('Connected to MetaMask with address:', address);
-                const contractAddress = '0x59eA5CfAd54E4AF490f94AFe33e4C57044881b8F';// Token Address of Contract deployed in localhost using hardhat on console
+                const contractAddress = '0xe4414070cF0996bDBed328463Ec370f03FE3E597';// Token Address of Contract deployed in localhost using hardhat on console
                 const contract = new ethers.Contract(
                     contractAddress,
                     abi,
@@ -98,6 +98,33 @@ const CreateTender = () => {
         Create();
         console.log("entered onsubmit")
     }
+    useEffect(() => {
+        const isAdmin = async () => {
+            const response = await fetch("http://localhost:5000/api/isIssuer", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ emaile: localStorage.getItem("userEmail") })
+            });
+            const json = await response.json();
+            try {
+                if (json.success === false) {
+                    dispatch(set(json.success))
+                    // setIssuer(json.success);
+                }
+                else if (json.success === true) {
+                    dispatch(set(json.success))
+                    // setIssuer(json.success);
+                }
+                console.log(json.success);
+            }
+            catch (e) {
+                console.log(e);
+            }
+        }
+        isAdmin();
+    }, [dispatch]);
     return (
         <section className='flex bg-gradient-to-r from-slate-300 to-slate-500'>
             <div className='bg-black'>
@@ -154,9 +181,10 @@ const CreateTender = () => {
                         <label className="text-gray-900 leading-6 font-medium ">Expiring Date</label>
                         <input type="datetime-local" name="expiryDate" id="" className='mt-2 block py-1.5 px-3 rounded-md border-solid border-2 border-gray-600 w-1/2' onChange={(e) => {
                             const { name, value } = e.target;
-                            const unixTimestamp = moment(value).unix();
-                            setFormvalue({ ...formvalue, [name]: unixTimestamp });
-                            console.log(unixTimestamp)
+                            // const unixTimestamp = moment(value).unix();
+                            // setFormvalue({ ...formvalue, [name]: unixTimestamp });
+                            setFormvalue({ ...formvalue, [name]: value })
+                            // console.log(unixTimestamp)
                         }} />
                     </div>
                     <div className='max-lg:px-10 px-96 mt-8 max-sm:mt-4'>

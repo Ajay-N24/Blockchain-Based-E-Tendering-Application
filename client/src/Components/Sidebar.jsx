@@ -49,7 +49,7 @@ const Sidebar = ({ role }) => {
         });
     }
     return (
-        <div className={`bg-black min-h-screen ${toggle ? "w-[67.6px]" : "w-72"} text-gray-100 px-4 flex flex-col`}>
+        <div className={`bg-[#2f2e41] min-h-screen ${toggle ? "w-[67.6px]" : "w-72"} text-gray-100 px-4 flex flex-col`}>
             <div className={`flex justify-between my-5 mx-1`}>
                 {
                     toggle ?

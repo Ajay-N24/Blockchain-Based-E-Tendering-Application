@@ -20,7 +20,7 @@ const Logout = () => {
     };
 
     return (
-        <li onClick={handleLogout} className='cursor-pointer'>Logout</li>
+        <li onClick={handleLogout} className='cursor-pointer hover:text-red-700'>Logout</li>
 
     );
 };

@@ -22,7 +22,6 @@ const Sidebar = ({ role }) => {
     ];
     const menusforBidder = [
         { name: "Dashboard", link: " / ", icon: MdDashboard },
-        { name: "Apply for Tender", link: "/CreateTender", icon: IoMdAdd },
         { name: "View All Tenders", link: "/ViewTender", icon: FaRegEye },
         { name: "Applied Tenders", link: "/CATenders", icon: MdOutlineListAlt },
     ];

@@ -87,7 +87,8 @@ const ViewTender = () => {
                         <tr className=''>
                             <th className='border-black px-3'>Reference Number</th>
                             <th className='border-black px-3'>Tender Title</th>
-                            <th className='border-black px-7'>Closing Date</th>
+                            <th className='border-black px-3'>Tender Type</th>
+                            <th className='border-black px-3'>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -96,31 +97,33 @@ const ViewTender = () => {
                                 <tr key={index}>
                                     <td className='text-center px-3'>1</td>
                                     <td className='text-center px-3'>{item[0]}</td>
+                                    <td className='text-center px-3'>{item[1]}</td>
                                     {/* <td className='text-center px-3' onLoad={displayDate}>{item[5] && item[5].type === 'BigNumber' ? new BigNumber(item[5].hex).toString() : ''}</td> */}
                                     {/* <td className='text-center px-3' onLoad={displayDate}>{decimalValue}</td> */}
-                                    <td className='text-center px-3'>{item[5] && item[5].type === 'BigNumber' ? displayDate(item[5]) : ''}</td>
-                                    <td className='text-center'>
-                                        <button type="submit" className='px-2 py-1 rounded-xl w-full bg-amber-400 text-base'>View</button>
-                                    </td>
-                                    <td className='text-center'>
-                                        <button type="submit" className='px-2 py-1 rounded-xl w-full bg-green-300 text-base'>Apply</button>
+                                    {/* <td className='text-center px-3'>{item[5] && item[5].type === 'BigNumber' ? displayDate(item[5]) : ''}</td> */}
+                                    <td className='text-center flex justify-center gap-8'>
+                                        <div className='text-center'>
+                                            <button type="submit" className='px-5 py-1.5 rounded-xl w-full bg-amber-400 text-base'>View</button>
+                                        </div>
+                                        <div className='text-center'>
+                                            <button type="submit" className='px-5 py-1.5 rounded-xl w-full bg-green-300 text-base'>Apply</button>
+                                        </div>
                                     </td>
                                 </tr>
 
                             ))
                         }
                         {/* {console.log(decimalValue)} */}
-                        <tr>
+                        {/* <tr>
                             <td className='text-center'>12</td>
                             <td className='text-center'>SandalWood 100 tons Sale</td>
-                            <td className='text-center'>15-2-24 2:00 pm</td>
                             <td className='text-center'>
                                 <button type="submit" className='px-2 py-1 rounded-xl w-full bg-amber-400 text-base'>View</button>
                             </td>
                             <td className='text-center'>
                                 <button type="submit" className='px-2 py-1 rounded-xl w-full bg-green-300 text-base'>Apply</button>
                             </td>
-                        </tr>
+                        </tr> */}
                     </tbody>
                 </table>
             </div>

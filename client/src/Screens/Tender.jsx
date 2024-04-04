@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { set } from '../Store/RoleSlice';
 import Sidebar from '../Components/Sidebar'
-const { ethers } = require('ethers');
+import { ethers } from 'ethers';
 
 const Tender = () => {
     // Connect to the MetaMask provider

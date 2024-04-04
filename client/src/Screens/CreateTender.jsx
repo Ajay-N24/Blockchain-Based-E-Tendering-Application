@@ -127,7 +127,7 @@ const CreateTender = () => {
     }, [dispatch]);
     return (
         <section className='flex bg-gradient-to-r from-slate-300 to-slate-500'>
-            <div className='bg-black'>
+            <div className='bg-[#2f2e41]'>
                 {roleu !== null ? <Sidebar role={roleu} /> : <p>Loading...</p>}
             </div>
             <div className='flex flex-col items-center min-h-full w-full p-11 max-lg:p-4 bg-gradient-to-r from-slate-300 to-slate-500'>
@@ -146,19 +146,6 @@ const CreateTender = () => {
                                 <option value="Service">Service</option>
                             </select>
                         </div>
-                        {/* <div className='w-full'>
-                            {
-                                selectedValue === "Goods" &&
-                                <div>
-                                    <label className="text-gray-900 leading-6 font-medium">Type of {selectedValue}</label>
-                                    <select id='type' className='mt-2 block py-1.5 rounded-md border-solid border-2 border-gray-600 w-full' defaultValue="">
-                                        <option value="" disabled selected></option>
-                                        <option value="Goods">Go</option>
-                                        <option value="Service">od</option>
-                                    </select>
-                                </div>
-                            }
-                        </div> */}
                     </div>
 
                     <div className='w-full flex gap-11 px-40 justify-between mt-5 max-lg:px-10 max-sm:px-5'>
@@ -181,10 +168,10 @@ const CreateTender = () => {
                         <label className="text-gray-900 leading-6 font-medium ">Expiring Date</label>
                         <input type="datetime-local" name="expiryDate" id="" className='mt-2 block py-1.5 px-3 rounded-md border-solid border-2 border-gray-600 w-1/2' onChange={(e) => {
                             const { name, value } = e.target;
-                            // const unixTimestamp = moment(value).unix();
-                            // setFormvalue({ ...formvalue, [name]: unixTimestamp });
-                            setFormvalue({ ...formvalue, [name]: value })
-                            // console.log(unixTimestamp)
+                            const unixTimestamp = moment(value).unix();
+                            setFormvalue({ ...formvalue, [name]: unixTimestamp });
+                            // setFormvalue({ ...formvalue, [name]: value })
+                            console.log(unixTimestamp)
                         }} />
                     </div>
                     <div className='max-lg:px-10 px-96 mt-8 max-sm:mt-4'>
